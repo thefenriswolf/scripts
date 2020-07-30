@@ -1,0 +1,11 @@
+[Unit]
+Description=Tarsnap automatic backup
+After=NetworkManager.service network.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/stefan/development/scripts/tarsnap-backup.sh
+
+[Install]
+WantedBy=multi-user.target

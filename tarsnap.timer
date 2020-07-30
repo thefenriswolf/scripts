@@ -1,0 +1,13 @@
+[Unit]
+Description=weekly tarsnap backup
+After=NetworkManager.service network.target
+After=network-online.target
+
+
+[Timer]
+#Unit=tarsnap.service
+OnCalendar=weekly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
