@@ -6,10 +6,16 @@ function ts_backup() {
 tarsnap -c --print-stats \
 	-f "ubuntu-thinkpad-$(date +%Y-%m-%d_%H-%M-%S)" \
 	/home/stefan/Dokumente
+if [ $? -eq 0 ]; then
+    echo "backup was SUCCESSFUL at: $(date +%Y-%m-%d_%H-%M-%S)" >> ~/.ts_backup.log
+
+else
+    echo "backup FAILED at: $(date +%Y-%m-%d_%H-%M-%S)" >> ~/.ts_backup.log
+fi
 }
 
 function ts_list_backups() {
-    echo $(tarsnap --list-archives | sort)
+    echo $(tarsnap --list-archives)
 }
 
 function ts_delete() {

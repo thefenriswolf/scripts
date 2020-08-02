@@ -1,3 +1,4 @@
+# deploy at "/etc/systemd/system/*.timer"
 [Unit]
 Description=weekly tarsnap backup
 After=NetworkManager.service network.target
