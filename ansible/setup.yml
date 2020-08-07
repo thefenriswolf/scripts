@@ -1,0 +1,63 @@
+- name: Ansible Workstation setup
+  hosts: localhost
+  connection: local
+
+  tasks:
+
+  - name: install base cli tools
+    apt:
+      state: present
+      name: ['emacs-nox', 'git', 'wget', 'hplip', 'cmus', 'aria2', 'docker.io', 'steam']
+
+  - name: install snap packages
+    snap:
+      state: present
+      classic: False
+      name:
+        - lxd
+        - bcc
+        - bpftrace
+        - chromium
+
+  - name: Add the flathub repo
+    flatpak_remote:
+      name: flathub
+      state: present
+      flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      method: user
+
+  - name: Install spotify flatpak
+    flatpak:
+      name: com.spotify.Client
+      state: present
+      method: user
+
+  - name: Install discord flatpak
+    flatpak:
+      name: com.discordapp.Discord
+      state: present
+      method: user
+
+  - name: Install vscode flatpak
+    flatpak:
+      name: com.vscodium.codium
+      state: present
+      method: user
+
+  - name: Install wps flatpak
+    flatpak:
+      name: com.wps.Office
+      state: present
+      method: user
+
+  - name: Install telegram flatpak
+    flatpak:
+      name: org.telegram.desktop
+      state: present
+      method: user
+
+  - name: Install zotero flatpak
+    flatpak:
+      name: org.zotero.Zotero
+      state: present
+      method: user
