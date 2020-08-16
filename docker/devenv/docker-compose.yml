@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  go:
+    image: golang:latest
+  haskell:
+    image: haskell:latest
+  tinygo:
+    image: tinygo/tinygo:latest
+  nix:
+    image: nixos/nix:latest
