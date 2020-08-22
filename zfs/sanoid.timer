@@ -1,0 +1,12 @@
+# deploy at "/etc/systemd/system/*.timer"
+
+[Unit]
+Description=runs sanoid every 1.5 min
+
+[Timer]
+OnActiveSec=0 # run when activated
+OnUnitActiveSec=90 # run every 90 sec
+AccuracySec=550msec # max scheduling delay
+
+[Install]
+WantedBy = multiuser.target

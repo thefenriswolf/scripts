@@ -1,0 +1,8 @@
+# deploy at "/etc/systemd/system/*.service"
+
+[Unit]
+Description=sanoid automatic zfs snapshots
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/sanoid --cron
