@@ -4,6 +4,7 @@
 Description=runs sanoid every 2 min
 
 [Timer]
+OnStartupSec=30sec
 OnCalendar=*:0/2
 AccuracySec=10sec
 
